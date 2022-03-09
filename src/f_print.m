@@ -1,10 +1,11 @@
 function [] = f_print(x0, x, y0, y, V_alpha, longueur_aq, largeur_aq, cerc_isol_X, cerc_isol_Y, cerc_cond_X, cerc_cond_Y)
-    quiver(x0,y0,(x-x0),(y-y0));
+    quiver(x0,y0,(x-x0),(y-y0), 10);
     hold on;
-    scatter(V_alpha(1,:),V_alpha(2,:), 18);
-    line([V_alpha(1,1), V_alpha(1,2)], [V_alpha(2,1), V_alpha(2,2)], 'Color','m', 'LineWidth',2);
-    line([V_alpha(1,1), V_alpha(1,4)], [V_alpha(2,1), V_alpha(2,4)], 'Color','m', 'LineWidth',2);
-    line([V_alpha(1,4), V_alpha(1,2)], [V_alpha(2,4), V_alpha(2,2)], 'Color','m', 'LineWidth',2);
+    quiver(x0,y0,(y-y0),(x-x0), 10);
+    scatter(V_alpha(1,:),V_alpha(2,:), 9);
+    line([V_alpha(1,1), V_alpha(1,2)], [V_alpha(2,1), V_alpha(2,2)], 'Color','m', 'LineWidth',1.5);
+    line([V_alpha(1,1), V_alpha(1,4)], [V_alpha(2,1), V_alpha(2,4)], 'Color','m', 'LineWidth',1.5);
+    line([V_alpha(1,4), V_alpha(1,2)], [V_alpha(2,4), V_alpha(2,2)], 'Color','m', 'LineWidth',1.5);
     plot(cerc_isol_X, cerc_isol_Y,'b');
     plot(cerc_cond_X, cerc_cond_Y,'r');
     hold off;

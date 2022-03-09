@@ -1,4 +1,4 @@
-function [x0, y0, th0, v_lin, v_ang, V_alpha] = f_robot()
+function [x0, y0, th0, v_lin, v_ang, V_alpha] = f_robot(n_electrodes)
     %% Outputs: 
     % x0, y0    : initial position of the robot (m)
     % th0       : initial orientation of the robot (radians)
@@ -9,7 +9,7 @@ function [x0, y0, th0, v_lin, v_ang, V_alpha] = f_robot()
     % Paramètres dinamiques du robot
     v_lin = 0.5;
     v_ang = 0;
-    n = 5; % Number of electrodes
+    
 
     L = 0.5; % Longueur (m), soit 50 cm
     l = 0.1; % Largeur  (m), soit 10 cm
@@ -21,16 +21,17 @@ function [x0, y0, th0, v_lin, v_ang, V_alpha] = f_robot()
     % Position of electrodes
     x_alpha_A = [-0.2   0.2     0.2     0.2     0.2     ];
     y_alpha_A = [0      0.06    0       -0.06   0       ];
-    z_alpha_A = [0      0       0.06    0       -0.06   ];
+    % z_alpha_A = [0      0       0.06    0       -0.06   ]; % Copied to f_currents
 
-    V_alpha = [x_alpha_A; y_alpha_A; ones(1, n)];
+    V_alpha = [x_alpha_A; y_alpha_A; ones(1, n_electrodes)];
     
-    gamma = 0;
+    % gamma = 0; % Copied to f_currents
     % Matrice de conductances (conductivité) entre chaque electroque
-    C0 = gamma* [   0.2557 -0.0639 -0.0639 -0.0639 -0.0639;
-                    -0.0639 0.1218 -0.0203 -0.0173 -0.0203;
-                    -0.0639 -0.0203 0.1218 -0.0203 -0.0173;
-                    -0.0639 -0.0173 -0.0203 0.1218 -0.0203;
-                    -0.0639 -0.0203 -0.0173 -0.0203 0.1218];
+    % C0 = gamma* [   0.2557 -0.0639 -0.0639 -0.0639 -0.0639; 
+    %                -0.0639 0.1218 -0.0203 -0.0173 -0.0203;
+    %                -0.0639 -0.0203 0.1218 -0.0203 -0.0173;
+    %                -0.0639 -0.0173 -0.0203 0.1218 -0.0203;
+    %                -0.0639 -0.0203 -0.0173 -0.0203 0.1218]; % Copied to f_currents
+
     
 end
