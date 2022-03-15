@@ -16,7 +16,7 @@ function [x0, y0, th0, v_lin, v_ang, V_alpha] = f_robot(n_electrodes)
     h = 0.2; % Hauteur  (m), soit 20 cm
 
     % Initial position and orientation of the robot
-    x0 = -1.2; y0 = 0.5; th0 = 0;
+    x0 = -1.2; y0 = 0; th0 = 0;
     
     % Position of electrodes
     x_alpha_A = [-0.2   0.2     0.2     0.2     0.2     ];
