@@ -1,0 +1,223 @@
+%*****************************************************************************************************            
+%                               INSTITUT MINES-TELECOM, IMT ATlantique
+%                         Département Mathematical & Electrical Engineering           
+%                                     Technopôle de Brest-Iroise                   
+%                                  CS 83818 - 29238 BREST Cedex 3                       
+%            
+%                                    **  Tous droits réservés **
+%                                      
+%
+% NOM DU PROJET : TP LaTeX 006 / Modèle de rapport de recherche (validé par la DRI), de support de cours
+% et de TP au format LaTeX avec les éléments de la charte graphique de la communication d'IMT Atlantique
+%
+% LIVRABLE : [ ] Memo, [ ] Résumé, [ ] Article, [ ] Code, [X] Rapport , [ ] Thèse, [ ] Cours/TP
+%
+% AUTEUR(s) : Thierry LE GALL (Dépt. MEE), Guillaume ANSEL (SC), Thomas GUILMENT (Dépt. SC)
+%
+% 
+%***********************************************************************************************
+
+%-----------------------------------------------------------------------------------------------
+%                                    DEBUT DU FICHIER D'EDITION
+%-----------------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,french]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{newtxtext} % Police pour texte
+\usepackage{newtxmath} % Police pour formules
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{microtype}
+
+\usepackage{framed}	% Permet de surligner les résultats importants
+
+% Charte graphique de IMT Atlantique
+% L'option "version" affiche la menion "Document version x" sur la première de couverture
+% Le numéro de version est paramétrable via la commande "\version"
+% L'option "copyright" affiche la mention "© IMT Atlantique ..." sur la quatrième de couverture
+% Les informations de copyright sont paramétrables via les commandes \IMTAanneecopyright, \IMTAdepotlegal, \IMTAissn
+
+\usepackage[copyright]{../sty/imta} % édition avec copyright (et n°ISSN) en 4eme de couverture
+%\usepackage{../sty/imta}	% édition sans copyright (et n°ISSN) en 4eme de couverture
+
+% Signets et hyperliens (à charger en dernier)
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=IMTAbleu]{hyperref} 
+
+%----------------- Métadonnées du PDF (facilite le travail des moteurs de recherche) -----------
+\hypersetup{
+	pdfinfo = {
+		Author = {SANTOS SEISDEDOS, Carlos},
+		Title = {TP Sens Électrique},
+		Keywords = {Sens Électrique; Robotique Bio-Inspirée; ...}
+	}
+}
+
+%--------------------------- Définition du contenu du pied de page ----------------------------
+
+% Le pied de page contient par défaut le titre du document.
+% Il peut être remplacé en décommentant l'une des lignes ci-dessous
+
+%\IMTAfooter{Modèle de document \LaTeX{} IMT Atlantique} % Exemple de remplacement par un autre texte
+\IMTAfooter{\thereportnumber} % Utilisation du numéro de rapport de recherche
+
+%-------------------- Informations de copyright pour quatrième de couverture ------------------
+%          (uniquement si l'option "copyright" est présente pour le package imta)
+
+% Les lignes ci-dessous permettent de remplacer manuellement le mois et l'année
+% d'édition pour le dépot légal si nécessaire. Par défaut, le mois et l'année
+% courants lors de la compilation du document sont utilisés
+
+\IMTAanneecopyright{2021}
+\IMTAdepotlegal{Septembre 2017}
+
+%-------------------------------------- Do not modify -----------------------------------------
+																									
+% le numéro ISSN est communiqué par la BNF à la DRI. N°fixé par la BNF en
+% fonction du type de document. Ne concerne que la collection des rapports
+% de recherche (et pas les autres types de document utilisant ce modèle).
+\IMTAissn{2556-5060}
+
+%----------------------------------- End of do not modify -------------------------------------
+
+%----------------- Définitions d'ensembles et d'opérateurs mathématiques ----------------------
+
+\def\Cset{\mathbb{C}} % complexes
+\def\Hset{\mathbb{H}} % hilbert
+\def\Nset{\mathbb{N}} % entiers naturels
+\def\Qset{\mathbb{Q}} % rationnels
+\def\Rset{\mathbb{R}} % reels
+\def\Zset{\mathbb{Z}} % entiers relatifs
+\def\Dset{\mathbb{D}} % disque unite ouvert
+\def\Eset{\mathbb{E}} % esperance mathematique
+
+%-------------------------------------- FIN DES DEFINITIONS ----------------------------------
+
+\begin{document}
+
+%---------------------------------------------------------------------------------------------
+%                                   PAGE DE TITRE (please modify)
+%---------------------------------------------------------------------------------------------
+
+% Type de document
+%\DocumentType{<Type de document>}  
+%\DocumentType{Collection des rapports de recherche d'IMT Atlantique}
+%\DocumentType{Document support de BE et de TP}
+%\DocumentType{Support de cours}
+\DocumentType{\Large{TP - Sens Électrique}}
+%\DocumentType{Mémoire technique}
+
+
+% Numéro de rapport de recherche (à remplacer)
+% Commenter la ligne ci-dessous si le document n'est pas un rapport de recherche
+%\ReportNumber{N° rapport de recherche}
+
+
+\entity{%\textbf{\large{IMT Atlantique}}\\
+% Dépt. Automatique productique et informatique\\
+% Dépt. Électronique\\ 
+% Dépt. Informatique\\ 
+%Dépt. Image \& traitement de l'information\\
+%Dépt. Langues \& culture internationale\\ 
+%Dépt. Logique des usages, sciences sociales \& sciences de l'information\\ 
+%Dépt. Micro-ondes\\ 
+%Dépt. Optique\\
+%Dépt. Physiques subatomiques et technologies\\
+%Dépt. Sciences sociales et de gestion\\
+%Dépt. Mathematical \& Electrical Engineering\\
+%Dépt. Systèmes énergétiques et environnement\\
+%Dépt. Systèmes réseaux, cybersécurité et droit du numérique\\
+%Technopôle de Brest-Iroise - CS 83818\\
+%29238 Brest Cedex 3\\
+%Téléphone: +33 (0)2 29 00 13 04\\
+%Télécopie: +33 (0)2 29 00 10 12\\
+%4, rue Alfred Kastler\\
+%CS 20722\\
+%44307 Nantes Cedex 3\\
+%Téléphone: +33 (0)2 51 85 81 00\\
+%Télécopie: +33 (0)2 99 12 70 08\\		
+%2, rue de la Châtaigneraie\\
+%CS 17607\\
+%35576 Cesson Sévigné Cedex\\
+%Téléphone: +33 (0)2 99 12 70 00\\
+%Télécopie: +33 (0)2 51 85 81 99\\
+%10, avenue Édouard Belin\\
+%BP 44004\\
+%31028 Toulouse Cedex 04\\
+%Téléphone: +33 (0)5 61 33 83 65\\		
+%URL: \textbf{\href{http://www.imt-atlantique.fr/}{www.imt-atlantique.fr}}
+}
+
+%\docdescription{<Destinataire : >}
+
+\title{Robotique Bio Inspirée (ROBIO)}
+%\title{Étude d'une forme d'onde pour communications longues-distances par le canal acoustique sous-marin}
+
+\author{
+	Carlos SANTOS SEISDEDOS
+}
+
+% Numéro de version du document, affiché sur la couverture
+% Commenter cette ligne pour ne pas faire apparaître la version du document.
+\version{2.0}
+
+% Date d'édition du document
+\date{\today}
+
+%------------------------------------------ Do not modify ------------------------------------
+\IMTAfrontcover
+\pagestyle{IMTAfancy} % Changement du style de page pour avoir en-tête et pied de page
+%--------------------------------------- End of do not modify --------------------------------
+
+%% Affichage des listes et tables.
+\IMTAsommaire
+\newpage
+\IMTAlistefigures  % commenter pour ne pas avoir la liste des figures
+\IMTAlistetableaux   % commenter pour ne pas avoir la liste des tables
+\newpage
+%---------------------------------------------------------------------------------------------
+%                                   INTRODUCTION (please modify)
+%---------------------------------------------------------------------------------------------
+
+\include{doc/src/1_intro}
+\include{doc/src/2_modelisation}
+
+%--------------------------------------- DEBUT DES ANNEXES --------------------------------------
+\newpage
+\begin{IMTAannexes}
+	
+%-------------------------------------------- ANNEXE 1  -----------------------------------------
+\input{doc/src/A_annexe}
+
+%------------------------------------- -- FIN DES ANNEXES --------------------------------------
+\end{IMTAannexes}
+
+%-----------------------------------DEBUT DE LA BIBLIOGRAPHIE ----------------------------------
+\newpage
+%------------------ Ajout du renvoi vers la bibliographie dans le sommaire ---------------------
+\phantomsection
+\addcontentsline{toc}{section}{\refname}
+%-----------------------------------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+% \bibitem{[Lichtfouse2012]} Eric Lichtfouse, \emph{Rédiger pour être publié}, Springer, $2^{eme}$ édition, 2012 (cote bibliothèque IMT Atlantique Brest : $0.343$ LICH).
+\bibitem{BENACHENHOU2014} Mohammed-Rédha BENACHENHOU, \emph{Électrolocation dans un contexte multi-robots: théorie et expérimentations}, Thèse de Doctorat, École Centrale de Nantes, 2014. 
+
+\bibitem{Boyer2012} Frédéric Boyer, Pol Bernard Gossiaux, Brahim Jawad, Vincent Lebastard and Mathieu Porez, \emph{Model for a sensor inspired by electric fish}, JOURNAL OF IEEE TRANSACTIONS ON ROBOTICS, 2012.
+
+ 
+%----------------------------------- FIN DE LA BIBLIOGRAPHIE -----------------------------------
+\end{thebibliography}
+%---------------------------------------- Do not modify ----------------------------------------
+\IMTAcoverpage
+%------------------------------------ End of do not modify -------------------------------------
+
+\end{document}
+
+%***********************************************************************************************
+%                                   FIN DU FICHIER D'EDITION
+%***********************************************************************************************
