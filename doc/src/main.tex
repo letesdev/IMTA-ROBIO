@@ -33,7 +33,14 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{microtype}
-
+\usepackage{amsmath}
+\usepackage[
+    left = \flqq{},% 
+    right = \frqq{},% 
+    leftsub = \flq{},% 
+    rightsub = \frq{} %
+]{dirtytalk}
+\usepackage{nicefrac}
 \usepackage{framed}	% Permet de surligner les résultats importants
 
 % Charte graphique de IMT Atlantique
@@ -157,9 +164,7 @@
 \title{Robotique Bio Inspirée (ROBIO)}
 %\title{Étude d'une forme d'onde pour communications longues-distances par le canal acoustique sous-marin}
 
-\author{
-	Carlos SANTOS SEISDEDOS
-}
+\author{Carlos SANTOS SEISDEDOS}
 
 % Numéro de version du document, affiché sur la couverture
 % Commenter cette ligne pour ne pas faire apparaître la version du document.
@@ -185,6 +190,7 @@
 
 \include{doc/src/1_intro}
 \include{doc/src/2_modelisation}
+\include{doc/src/3_loi_commande}
 
 %--------------------------------------- DEBUT DES ANNEXES --------------------------------------
 \newpage
@@ -209,7 +215,7 @@
 
 \bibitem{Boyer2012} Frédéric Boyer, Pol Bernard Gossiaux, Brahim Jawad, Vincent Lebastard and Mathieu Porez, \emph{Model for a sensor inspired by electric fish}, JOURNAL OF IEEE TRANSACTIONS ON ROBOTICS, 2012.
 
- 
+\bibitem{Jackson2012} John David Jackson, \emph{Clasiccal Electrodynamics}, John Wiley \& Sons, 1962.
 %----------------------------------- FIN DE LA BIBLIOGRAPHIE -----------------------------------
 \end{thebibliography}
 %---------------------------------------- Do not modify ----------------------------------------
