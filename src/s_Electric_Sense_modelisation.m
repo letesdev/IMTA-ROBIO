@@ -11,12 +11,13 @@ ry = 1*sin(phi);
 % Création de l'aquarium
 longueur_aq = 3;
 largeur_aq = longueur_aq;
-figure
+f1 = figure;
 f_aquarium(longueur_aq, largeur_aq);
 
 % Création des Isolants. Minimum 2
 n_isol = 2;
-x_isol = [2, 2]; y_isol = [2, 2];
+x_isol = [0, 0]; y_isol = [0, 0];
+%x_isol = [2.5, 2.5]; y_isol = [2.5, 2.5];
 r_isol = 0.05;
 pos_isol = [x_isol',y_isol']; 
 for i = 1:n_isol
@@ -28,7 +29,8 @@ plot(cerc_isol_X, cerc_isol_Y,'b');
 
 % Création des Conducteurs. Minimum 2
 n_cond = 2;
-x_cond= [0 0]; y_cond = [0 0];
+x_cond= [2.5 2.5]; y_cond = [2.5 2.5];
+%x_cond= [0 0]; y_cond = [0 0];
 % n_cond = 1;
 % x_cond = [1]; y_cond = [0];
 r_cond = 0.05;
@@ -78,61 +80,5 @@ for i = t
     th0 = th;
 end
 % Affichage courants
-f = figure;
-f.Position(3:4) = [1000 600];
-
-
-subplot(3,3,4)
-%plot(X_electrodes(1,:),II(1,:));
-plot(X_repere, II(1,:));
-title('Electrode #1: queue')
-xlabel('$x$[m]', 'Interpreter','latex')
-ylabel('$I$ [A]', 'Interpreter','latex')
-grid on
-% text(max(X_electrodes(1,:))*0.8,(max(II(1,:))+min(II(1,:)))*0.5, "\DeltaI = " + num2str((max(II(1,:))-min(II(1,:)))*0.5))
-
-subplot(3,3,3)
-%plot(X_electrodes(2,:),II(2,:));
-plot(X_repere, II(2,:));
-title('Electrode #2')
-xlabel('$x$[m]', 'Interpreter','latex')
-ylabel('$I$ [A]', 'Interpreter','latex')
-grid on
-% text(max(X_electrodes(2,:))*0.8,(max(II(2,:))+min(II(2,:)))*0.5, "\DeltaI = " + num2str((max(II(2,:))-min(II(2,:)))*0.5))
-
-subplot(3,3,6)
-%plot(X_electrodes(3,:),II(3,:));
-plot(X_repere, II(3,:));
-title('Electrode #3: tête')
-xlabel('$x$[m]', 'Interpreter','latex')
-ylabel('$I$ [A]', 'Interpreter','latex')
-grid on
-% text(max(X_electrodes(3,:))*0.8,(max(II(3,:))+min(II(3,:)))*0.5, "\DeltaI = " + num2str((max(II(3,:))-min(II(3,:)))*0.5))
-
-subplot(3,3,9)
-%plot(X_electrodes(4,:),II(4,:));
-plot(X_repere, II(4,:));
-title('Electrode #4')
-xlabel('$x$[m]', 'Interpreter','latex')
-ylabel('$I$ [A]', 'Interpreter','latex')
-grid on
-% text(max(X_electrodes(4,:))*0.8,(max(II(4,:))+min(II(4,:)))*0.5, "\DeltaI = " + num2str((max(II(4,:))-min(II(4,:)))*0.5))
-
-
-% subplot(3,3,5)
-% %plot(X_electrodes(5,:),II(5,:));
-% plot(X_repere, II(5,:));
-% title('Ie5')
-% xlabel('$x$[m]', 'Interpreter','latex')
-% ylabel('$I$ [A]', 'Interpreter','latex')
-% grid on
-% text(max(X_electrodes(5,:))*0.8,(max(II(5,:))+min(II(5,:)))*0.5, "\DeltaI = " + num2str((max(II(5,:))-min(II(5,:)))*0.5))
-
-
-subplot(3,3,5)
-%plot(X_electrodes(1,:)+0.2,II(1,:)+II(2,:)+II(3,:)+II(4,:)+II(5,:));
-plot(X_repere, II(1,:)+II(2,:)+II(3,:)+II(4,:)+II(5,:));
-title('Somme des courants')
-xlabel('$x$[m]', 'Interpreter','latex')
-ylabel('$I$ [A]', 'Interpreter','latex')
-grid on
+f_plot_currents(X_repere,II)
+close(f1);

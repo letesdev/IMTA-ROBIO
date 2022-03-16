@@ -6,16 +6,17 @@ function [] = f_print(x0, x, y0, y, V_alpha, longueur_aq, largeur_aq, cerc_isol_
     line([V_alpha(1,1), V_alpha(1,2)], [V_alpha(2,1), V_alpha(2,2)], 'Color','m', 'LineWidth',1.5);
     line([V_alpha(1,1), V_alpha(1,4)], [V_alpha(2,1), V_alpha(2,4)], 'Color','m', 'LineWidth',1.5);
     line([V_alpha(1,4), V_alpha(1,2)], [V_alpha(2,4), V_alpha(2,2)], 'Color','m', 'LineWidth',1.5);
-    plot(cerc_isol_X, cerc_isol_Y,'b');
-    plot(cerc_cond_X, cerc_cond_Y,'r');
-    plot(X_repere, Y_repere, 'y');
+    plot(cerc_isol_X, cerc_isol_Y,'b', 'DisplayName','Isolants');
+    plot(cerc_cond_X, cerc_cond_Y,'r', 'DisplayName','Conducteurs');
+    plot(X_repere, Y_repere, 'g', 'DisplayName','Trajectoire');
     hold off;
     f_aquarium(longueur_aq,largeur_aq);
-    text(3, 3.8, 'Isolants');
-    text(2.4, 3.8, '-----', 'Color', 'blue');
-    text(3, 3.5, 'Conducteurs');
-    text(2.4, 3.5, '-----', 'Color', 'red');
-    text(3, 3.2, 'Trajectoire');
-    text(2.4, 3.2, '-----', 'Color', 'y');
+%     text(3, 3.8, 'Isolants');
+%     text(2.4, 3.8, '-----', 'Color', 'blue');
+%     text(3, 3.5, 'Conducteurs');
+%     text(2.4, 3.5, '-----', 'Color', 'red');
+%     text(3, 3.2, 'Trajectoire');
+%     text(2.4, 3.2, '-----', 'Color', 'g');
+    %legend('', '',  '', '', '', '', 'Isolants', '', 'Conducteurs', '', 'Trajectoire', '')
 end
 
