@@ -91,7 +91,7 @@ Le scalaire axial $\delta I_{ax}$ nous permet savoir si la scène est composée 
           & & \textbf{ou} pour un objet isolant à la gauche du capteur \\
           \hline
     \end{tabular}
-    \caption{Propriétés des courants axiaux $\delta I_{ax}$ et latéraux $\delta I_{lat}$ perturbées, de \cite{Boyer2013}}
+    \caption{\centering Propriétés des courants axiaux $\delta I_{ax}$ et latéraux $\delta I_{lat}$ perturbées, de \cite{Boyer2013}}
     \label{tab:proprietes}
 \end{table}
 
@@ -104,7 +104,7 @@ Pour le calcul de la matrice $\mathbf{K}$ dans le cas d'un petit objet, nous pre
 \begin{figure}[h!]
     \centering
     \includegraphics{doc/img/schema_petit_objet.png}
-    \caption{Schéma représentant la macro-électrode $\varepsilon_{\alpha}$ du capteur perturbée par une sphère $\mathbf{p}$.}
+    \caption{\centering Schéma représentant la macro-électrode $\varepsilon_{\alpha}$ du capteur perturbée par une sphère $\mathbf{p}$.}
     \label{fig:schema_petit_objet}
 \end{figure}
 Il est prouvé dans \cite{Boyer2012} que la matrice $\mathbf{K}$ de réponse à cet objet suit l'expression suivante: 
@@ -122,7 +122,7 @@ Pour le cas des murs, nous utilisons la méthode présenté dans \cite{Jackson20
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{doc/img/schema_murs_coins.png}
-    \caption{Schéma représentant le capteur $A$ et les images virtuelles $A_{W_1}^*$ et $A_{W_2}^*$ symétriques aux murs $W_{1}$ et $W_{2}$, respectivement, et l'image virtuelle $A_C^*$ symétrique par rapport au coin $C$. }
+    \caption{\centering Schéma représentant le capteur $A$ et les images virtuelles $A_{W_1}^*$ et $A_{W_2}^*$ symétriques aux murs $W_{1}$ et $W_{2}$, respectivement, et l'image virtuelle $A_C^*$ symétrique par rapport au coin $C$. }
     \label{fig:schema_murs_coins}
 \end{figure}
 
@@ -131,31 +131,33 @@ En considérant le potentiel généré par le mur comme la superposition du cham
 \begin{equation}
     \mathbf{K}_{\text{murs}} = - \frac{1}{4\pi \cdot \gamma} \cdot \frac{1}{\lVert \mathbf{r}_{\beta\alpha}^* \rVert^3}
 \end{equation}
-
 où, $\mathbf{r}_{\beta\alpha}^* = x_\alpha - x_\beta^*$ pour chaque combinaison d'électrode réel et électrode image. Du fait que notre aquarium porte 4 murs, nous avons 8 réflexions au total (4 réflexions provenant des murs et 4 réflexions provenant des coins). Dans la Figure \ref{fig:wall_reflexion} nous pouvons voir une représentation des 8 images virtuelles du robot poisson par rapport aux murs et aux coins. 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.8]{assets/wall_reflexions/wall_reflexion.png}
-    \caption{Réflexions du robot poisson par rapport aux murs et aux coins.}
+    \caption{\centering Réflexions du robot poisson par rapport aux murs et aux coins.}
     \label{fig:wall_reflexion}
 \end{figure}
 \clearpage
 
 \subsection{Résultats obtenus} \label{sec:resultats}
 Cette section montre les résultats obtenus lors de certaines simulations, et comme avancé précédemment, nous permettent de vérifier le calcul des courants avec la Table \ref{tab:proprietes}. 
+
+L'allure de certaines courbes peuvent être endommagés par la présence de l'objet (isolant ou conducteur) à la position $(x,y) = (2.5, 2.5)$, mais le simulateur créée a besoin d'un objet isolant et d'un objet conducteur pour que les matrices $\mathbf{K}$ calculées soient pas égales à $0$.
+
 \subsubsection{Cas d'un petit objet conducteur}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/plot_currents/Table1/conducteur_bas.png}
-    \caption{Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$.}
+    \caption{\centering Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$ (à droite).}
     \label{fig:conducteur_bas}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/plot_currents/Table1/conducteur_haut.png}
-    \caption{Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$.}
+    \caption{\centering Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$ (à droite).}
     \label{fig:conducteur_haut}
 \end{figure}
 \clearpage
@@ -163,13 +165,13 @@ Cette section montre les résultats obtenus lors de certaines simulations, et co
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/plot_currents/Table1/isolant_bas.png}
-    \caption{Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$.}
+    \caption{\centering Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$ (à droite).}
     \label{fig:isolant_bas}
 \end{figure}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/plot_currents/Table1/isolant_haut.png}
-    \caption{Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$.}
+    \caption{\centering Représentation de la trajectoire suivi par le robot poisson (à gauche) et graphiques du courant axial $\delta I_{ax}$ et latéral $\delta I_{lat}$ en fonction de la distance parcourue dans l'axe $X$ (à droite).}
     \label{fig:isolant_haut}
 \end{figure}
 
