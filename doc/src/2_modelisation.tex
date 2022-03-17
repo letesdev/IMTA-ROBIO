@@ -1,7 +1,7 @@
 \section{Démarche de Modélisation}
 \subsection{Le robot poisson}
 
-Le robot (robot poisson ou poisson) simulé est composé de 5 électrodes pour faire de l'\textit{électrolocation active}, c'est-à-dire pour générer un champ électrique qui réagit à l'environnement, tout comme le \textit{Gnathonemus petersii}. La suivante figure en deux dimension (le 5-ième capteur n'est pas représenté) montre le robot poisson simulé, ainsi que l'emplacement des électrodes. 
+Le robot (robot poisson ou poisson) simulé est composé de 5 électrodes pour faire de l'\textit{électrolocation active}, c'est-à-dire pour générer un champ électrique qui réagit à l'environnement, tout comme le \textit{Gnathonemus petersii} fait. La suivante figure en deux dimension (le 5-ième capteur n'est pas représenté) montre le robot poisson simulé, ainsi que l'emplacement des électrodes. 
 
 \begin{figure}[h!]
     \centering
@@ -56,10 +56,9 @@ et
 \begin{equation}
     \mathbf{I}_{\text{lat}} = \mathbf{P}_{\perp} \cdot \mathbf{L} \cdot \mathbf{P}_{+} \cdot \mathbf{I}^{(0)}
 \end{equation}
+où, la matrice $\mathbf{P}_{+}$ projette les courants à travers chaque électrode, en additionnant les courants de la même électrode, la matrice diagonale $\mathbf{P}_{\perp}$ dépend de la géométrie du capteur, et les matrices $\mathbf{K}$ et $\mathbf{L}$ dépendent de la géométrie de l'objet et de sa position et orientation par rapport au capteur. 
 
-où, la matrice $\mathbf{P}_{+}$ projette les courants à travers chaque électrode, en additionnant les courants de la même électrode, la matrice diagonale $\mathbf{P}_{\perp}$ dépend de la géométrie du capteur, et les matrices $\mathbf{P}$ et $\mathbf{L}$ dépendent de la géométrie de l'objet et de sa position et orientation par rapport au capteur. 
-
-Dans le simulateur, nous utilisons la suivante formule pour le calcul des courants mesurées. 
+Dans le simulateur, nous utilisons la suivante formule pour le calcul des courants mesurées:
 
 \begin{equation}
     \mathbf{I}= \bar{\mathbf{C}}^{(0)} \cdot \mathbf{U} \left ( 1- \bar{\mathbf{C}}^{(0)} \cdot \mathbf{K} \right )
@@ -73,7 +72,7 @@ avec $I_2$ et $I_4$ les courants mesurées dans un instant donnée et $I_{02}$ e
 
 Et, dans le cas de notre configuration d'électrodes, nous pouvons paramétrer les courants perturbés $\delta I$ par sa composante axiale et sa composante latérale: 
 
-\begin{equation}
+\begin{equation}\label{eq:axial_lateral}
     \delta I_{ax} = \frac{\delta I_1 + \delta I_2}{2} \quad ; \quad \delta I_{lat} = \frac{\delta I_1 - \delta I_2}{2}
 \end{equation}
 
@@ -88,7 +87,7 @@ Le scalaire axial $\delta I_{ax}$ nous permet savoir si la scène est composée 
          \hline
          \multirow{4}{*}{$\delta I_{lat}$} & \multirow{2}{*}{$>0$} & pour un objet conducteur à la gauche du capteur \\
           & & \textbf{ou} pour un objet isolant à la droite du capteur \\ \cline{2-3}
-          & \multirow{2}{*}{$>0$} & pour un objet conducteur à la droite du capteur \\
+          & \multirow{2}{*}{$<0$} & pour un objet conducteur à la droite du capteur \\
           & & \textbf{ou} pour un objet isolant à la gauche du capteur \\
           \hline
     \end{tabular}
@@ -96,7 +95,7 @@ Le scalaire axial $\delta I_{ax}$ nous permet savoir si la scène est composée 
     \label{tab:proprietes}
 \end{table}
 
-Nous utiliserons cette table pour vérifier notre simulateur plus tard. 
+Nous utiliserons cette table pour vérifier notre simulateur plus tard, dans la Section \ref{sec:resultats}, et pour définir une loi de contrôle, dans la Section \ref{sec:controle}.
 
 Dans ce qui suit, nous devons calculer la matrice $\mathbf{K}$ pour les différents objets que le capteur peut rencontrer. Nous allons considérer uniquement le cas d'un petit objet qui peut être isolant ou conducteur, et le cas d'un mur isolant. Notre simulateur placera des objets dans l'aquarium composé de 4 murs isolants. 
 
@@ -110,7 +109,7 @@ Pour le calcul de la matrice $\mathbf{K}$ dans le cas d'un petit objet, nous pre
 \end{figure}
 Il est prouvé dans \cite{Boyer2012} que la matrice $\mathbf{K}$ de réponse à cet objet suit l'expression suivante: 
 \begin{equation}
-    \mathbf{K} = - \frac{1}{4\pi \cdot \gamma} \cdot \frac{\mathbf{r}_\alpha \cdot \mathbf{P}_r \cdot \mathbf{r}_\beta}{\lVert \mathbf{r}_\alpha \rVert^3 \cdot \lVert \mathbf{r}_\beta \rVert^3}
+    \mathbf{K}_{\text{objet}} = - \frac{1}{4\pi \cdot \gamma} \cdot \frac{\mathbf{r}_\alpha \cdot \mathbf{P}_r \cdot \mathbf{r}_\beta}{\lVert \mathbf{r}_\alpha \rVert^3 \cdot \lVert \mathbf{r}_\beta \rVert^3}
 \end{equation}
 où, $\mathbf{r}_\alpha = y_c - x_\alpha$, c'est-à-dire la distance entre l'objet et le capteur considéré, $\mathbf{r}_\beta = y_c - x_\beta$, c'est-à-dire la distance entre l'objet et un autre capteur, et $\mathbf{P}$ le tenseur de polarisation qui dépend de la géométrie de l'objet et du caractère conducteur/isolant. Pour une sphère, $\mathbf{P} = \upchi \cdot a^3 \cdot \mathbf{I}_{3}$ avec $\mathbf{I}_3$ la matrice identité de $3$ dimensions, $a$ le rayon de la sphère et $\upchi$ le facteur de contraste: $1$ pour un objet totalement conducteur et $-0.5$ pour un objet totalement isolant.
 
@@ -130,7 +129,7 @@ Pour le cas des murs, nous utilisons la méthode présenté dans \cite{Jackson20
 En considérant le potentiel généré par le mur comme la superposition du champ du robot et le champ de son image, nous obtenons la matrice $\mathbf{K}$ de réponse aux murs suivante: 
 
 \begin{equation}
-    \mathbf{K} = - \frac{1}{4\pi \cdot \gamma} \cdot \frac{1}{\lVert \mathbf{r}_{\beta\alpha}^* \rVert^3}
+    \mathbf{K}_{\text{murs}} = - \frac{1}{4\pi \cdot \gamma} \cdot \frac{1}{\lVert \mathbf{r}_{\beta\alpha}^* \rVert^3}
 \end{equation}
 
 où, $\mathbf{r}_{\beta\alpha}^* = x_\alpha - x_\beta^*$ pour chaque combinaison d'électrode réel et électrode image. Du fait que notre aquarium porte 4 murs, nous avons 8 réflexions au total (4 réflexions provenant des murs et 4 réflexions provenant des coins). Dans la Figure \ref{fig:wall_reflexion} nous pouvons voir une représentation des 8 images virtuelles du robot poisson par rapport aux murs et aux coins. 
@@ -143,7 +142,7 @@ où, $\mathbf{r}_{\beta\alpha}^* = x_\alpha - x_\beta^*$ pour chaque combinaison
 \end{figure}
 \clearpage
 
-\subsection{Résultats obtenus}
+\subsection{Résultats obtenus} \label{sec:resultats}
 Cette section montre les résultats obtenus lors de certaines simulations, et comme avancé précédemment, nous permettent de vérifier le calcul des courants avec la Table \ref{tab:proprietes}. 
 \subsubsection{Cas d'un petit objet conducteur}
 \begin{figure}[h!]
