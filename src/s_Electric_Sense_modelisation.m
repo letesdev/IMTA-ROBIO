@@ -3,6 +3,7 @@
 
 % viscircles requires Image Processing Toolbox. I tried an alternative.
 close all; clc; clear;
+addpath('custom_tasks\')
 
 phi = 0:0.2:2*pi;
 rx = 1*cos(phi);
@@ -16,8 +17,9 @@ f_aquarium(longueur_aq, largeur_aq);
 
 % Création des Isolants. Minimum 2
 n_isol = 2;
-x_isol = [0, 0]; y_isol = [0, 0];
+%x_isol = [0, 0]; y_isol = [0, 0];
 %x_isol = [2.5, 2.5]; y_isol = [2.5, 2.5];
+x_isol = 2*[2.5, 2.5]; y_isol = 2*[2.5, 2.5];
 r_isol = 0.05;
 pos_isol = [x_isol',y_isol']; 
 for i = 1:n_isol
@@ -29,7 +31,8 @@ plot(cerc_isol_X, cerc_isol_Y,'b');
 
 % Création des Conducteurs. Minimum 2
 n_cond = 2;
-x_cond= [2.5 2.5]; y_cond = [2.5 2.5];
+x_cond = 2*[2.5, 2.5]; y_cond = 2*[2.5, 2.5];
+%x_cond= [2.5 2.5]; y_cond = [2.5 2.5];
 %x_cond= [0 0]; y_cond = [0 0];
 % n_cond = 1;
 % x_cond = [1]; y_cond = [0];
@@ -48,7 +51,7 @@ n_electrodes = 5; % Number of electrodes
 %% Simulation
 % Paramètres de temps de simulation
 dt = 0.1;   % Temps d'échantillonage
-tf = 5;    % Temps de simulation finale
+tf = 11;    % Temps de simulation finale
 t = [0:dt:tf]; 
 
 II = []; X_electrodes = []; Y_electrodes = []; X_repere = []; Y_repere = [];

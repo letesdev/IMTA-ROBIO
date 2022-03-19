@@ -78,7 +78,7 @@ end
 % K = K_ins+ K_cond;
 % K = K_ins + K_wall*0.05;
 % K =K_ins +  K_cond;
-K = k_cond*0.9 + k_isol*0.9 + k_murs*0.6;
+K = k_cond*0.9 - k_isol*0.9 + k_murs*0.6;
 % K = k_cond*1.3 - k_isol*1.2 + k_murs*0.006;
 I = C0*K*C0*U';
 end
