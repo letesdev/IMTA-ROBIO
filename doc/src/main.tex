@@ -171,7 +171,7 @@
 
 % Numéro de version du document, affiché sur la couverture
 % Commenter cette ligne pour ne pas faire apparaître la version du document.
-\version{2.0}
+\version{1.0}
 
 % Date d'édition du document
 \date{\today}
@@ -191,9 +191,10 @@
 %                                   INTRODUCTION (please modify)
 %---------------------------------------------------------------------------------------------
 
-\include{doc/src/1_intro}
-\include{doc/src/2_modelisation}
-\include{doc/src/3_loi_commande}
+\include{doc/src/chapters/1_intro}
+\include{doc/src/chapters/2_modelisation}
+\include{doc/src/chapters/3_loi_commande}
+\include{doc/src/chapters/4_conclusion}
 
 %--------------------------------------- DEBUT DES ANNEXES --------------------------------------
 %\newpage
@@ -213,16 +214,23 @@
 %-----------------------------------------------------------------------------------------------
 
 \begin{thebibliography}{99}
-% \bibitem{[Lichtfouse2012]} Eric Lichtfouse, \emph{Rédiger pour être publié}, Springer, $2^{eme}$ édition, 2012 (cote bibliothèque IMT Atlantique Brest : $0.343$ LICH).
-\bibitem{BENACHENHOU2014} Mohammed-Rédha BENACHENHOU, \emph{Électrolocation dans un contexte multi-robots: théorie et expérimentations}, Thèse de Doctorat, École Centrale de Nantes, 2014. 
+
+\bibitem{Wiki} \emph{Bio-inspiration}, Wikipedia, 19/03/2022, URL: \textbf{\href{https://fr.wikipedia.org/wiki/Bio-inspiration}{fr.wikipedia.org/wiki/Bio-inspiration}}
+
+\bibitem{Panama} Rigoberto González Gutiérrez, \emph{Los peces eléctricos (orden Gymnotiformes) de Panamá}, Instituto Smithsonian de Investigaciones Tropicales (STRI), Laboratorio de 
+Naos, Panamá, \copyright EDUNACHI, 2014
+
+\bibitem{Wiki2} \emph{Poisson-éléphant}, Wikipedia, 19/03/22, URL: \textbf{\href{https://fr.wikipedia.org/wiki/Poisson-éléphant}{fr.wikipedia.org/wiki/Poisson-éléphant}} 
+
+\bibitem{BENACHENHOU2014} Mohammed-Rédha Benachenhou, \emph{Électrolocation dans un contexte multi-robots: théorie et expérimentations}, Thèse de Doctorat, École Centrale de Nantes, 2014. 
 
 \bibitem{Boyer2012} Frédéric Boyer, Pol Bernard Gossiaux, Brahim Jawad, Vincent Lebastard and Mathieu Porez, \emph{Model for a sensor inspired by electric fish}, JOURNAL OF IEEE TRANSACTIONS ON ROBOTICS, 2012.
 
-\bibitem{Jackson2012} John David Jackson, \emph{Clasiccal Electrodynamics}, John Wiley \& Sons, 1962.
-
 \bibitem{Boyer2013} Frédéric Boyer, Vincent Lebastard, Christine Chevallereau, and Noël Servagen, \emph{Underwater Reflex Navigation in Confined Environment Based on Electric Sense}, IEEE TRANSACTIONS ON ROBOTICS, VOL. 29, NO. 4, AUGUST 2013
 
-\bibitem{BENACHENHOU} Mohammed-Rédha BENACHENHOU,  Frédéric Boyer, Christine Chevallereau, Vincent Lebastard, \emph{Fast simulator of the electric sense for complex scene}.
+\bibitem{BENACHENHOU} Mohammed-Rédha Benachenhou,  Frédéric Boyer, Christine Chevallereau, Vincent Lebastard, \emph{Fast simulator of the electric sense for complex scene}.
+
+\bibitem{Jackson2012} John David Jackson, \emph{Clasiccal Electrodynamics}, John Wiley \& Sons, 1962.
 
 %----------------------------------- FIN DE LA BIBLIOGRAPHIE -----------------------------------
 \end{thebibliography}

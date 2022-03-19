@@ -1,17 +1,17 @@
 \section{Démarche de Modélisation}
 \subsection{Le robot poisson}
 
-Le robot (robot poisson ou poisson) simulé est composé de 5 électrodes pour faire de l'\textit{électrolocation active}, c'est-à-dire pour générer un champ électrique qui réagit à l'environnement, tout comme le \textit{Gnathonemus petersii} fait. La suivante figure en deux dimension (le 5-ième capteur n'est pas représenté) montre le robot poisson simulé, ainsi que l'emplacement des électrodes. 
+Le robot (robot poisson ou poisson) simulé est inspirée du robot \textit{aFish} du projet \textit{Subcultron} et il est composé de 5 électrodes pour faire de l'\textit{électrolocation active}, c'est-à-dire pour générer un champ électrique qui réagit à l'environnement. La suivante figure en deux dimension (le 5-ième capteur n'est pas représenté) montre le robot poisson simulé, ainsi que l'emplacement des électrodes. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/poisson/poisson.png}
     \caption{Représentation du robot poisson et des capteurs dans le simulateur MATLAB}
     \label{fig:poisson}
-\end{figure}
+\end{figure}Jackson2012
 
 \subsection{La méthode des réflexions}
-La méthode des réflexions est une solution au problème d'électrolocation directe, présentée sur \cite{Boyer2012}. Cette technique consiste à résoudre l'équation de Laplace $\Delta\phi = 0$ dans un scénario avec plusieurs objets autour du capteur et avec certaines conditions imposées aux objets (capteur inclus). En appliquant le principe de superposition présenté, dû la rapide atténuation des réflexions $\phi_i$ avec la distance, le vecteur de courants total peut être évalué en considérant jusqu'à la deuxième réflexion: 
+La \og méthode des réflexions \fg{ } est une solution au problème d'électrolocation directe, présentée dans \cite{Boyer2012}. Cette technique consiste à résoudre l'équation de Laplace $\Delta\phi = 0$ dans un scénario avec plusieurs objets autour du capteur et avec certaines conditions imposées aux objets (capteur inclus). En appliquant le principe de superposition présenté, dû la rapide atténuation des réflexions $\phi_i$ avec la distance, le vecteur de courants total peut être évalué en considérant jusqu'à la deuxième réflexion: 
 
 \begin{equation}
     \mathbf{I} \approx \mathbf{I}^{(0)} + \mathbf{I}^{(1)} + \mathbf{I}^{(2)}
@@ -141,7 +141,7 @@ où, $\mathbf{r}_{\beta\alpha}^* = x_\alpha - x_\beta^*$ pour chaque combinaison
 \end{figure}
 \clearpage
 
-\subsection{Résultats obtenus} \label{sec:resultats}
+\subsection{Résultats obtenus - Essai représentatif} \label{sec:resultats}
 Cette section montre les résultats obtenus lors de certaines simulations, et comme avancé précédemment, nous permettent de vérifier le calcul des courants avec la Table \ref{tab:proprietes}. 
 
 L'allure de certaines courbes peuvent être endommagés par la présence de l'objet (isolant ou conducteur) à la position $(x,y) = (2.5, 2.5)$, mais le simulateur créée a besoin d'un objet isolant et d'un objet conducteur pour que les matrices $\mathbf{K}$ calculées soient pas égales à $0$.
