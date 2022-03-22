@@ -17,8 +17,7 @@ f_aquarium(longueur_aq, largeur_aq);
 
 % Création des Isolants. Minimum 2
 n_isol = 2;
-%x_isol = [1, 1]; y_isol = [1, 1];
-x_isol = [1, 1]; y_isol = [-1, -1];
+x_isol = [1, 1]; y_isol = [1, 1];
 r_isol = 0.05;
 pos_isol = [x_isol',y_isol']; 
 for i = 1:n_isol
@@ -30,10 +29,7 @@ plot(cerc_isol_X, cerc_isol_Y,'b');
 
 % Création des Conducteurs. Minimum 2
 n_cond = 2;
-%x_cond= [1 1]; y_cond = [-1 -1];
-x_cond= [1 1]; y_cond = [1 1];
-% n_cond = 1;
-% x_cond = [1]; y_cond = [0];
+x_cond= [1 1]; y_cond = [-1 -1];
 r_cond = 0.05;
 pos_cond = [x_cond',y_cond'];
 for i = 1:n_cond
@@ -81,7 +77,7 @@ for i = t
     
     % v_ang = -(I(2)-I(4))/abs((II(2,1)-II(4,1)))*0.03;
     %v_ang = -(I(2)-I(4))/abs((II(2,1)-II(4,1)))*1e10;
-	v_ang = 1e10*(dI4 - dI2);
+	v_ang = 1e10*(dI2 - dI4);
     
     % Mise à jour
     x0  = x;
@@ -91,6 +87,5 @@ end
 
 xlabel("$x [cm]$", 'Interpreter', 'latex')
 ylabel("$y [cm]$", 'Interpreter', 'latex')
-%xticks([-3 -2 -1 0 1 2 3])
 axis(3.5*[-1 1 -1 1])
 legend('', '',  '', '', '', '', 'Isolants', '', 'Conducteurs', '', 'Trajectoire', '', 'Position',[0.28,0.19,0.21,0.13]);
