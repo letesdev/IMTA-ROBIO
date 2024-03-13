@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55"
+    height="20" role="img" aria-label="Matlab">
+    <title>C</title>
+    <linearGradient id="s" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1" />
+        <stop offset="1" stop-opacity=".1" />
+    </linearGradient>
+    <clipPath id="r">
+        <rect width="55" height="20" rx="3" fill="#fff" />
+    </clipPath>
+    <g clip-path="url(#r)">
+        <rect width="0" height="20" fill="#555" />
+        <rect x="0" width="55" height="20" fill="#ffa710" />
+        <rect width="55" height="20" fill="url(#s)" />
+    </g>
+    <g fill="#ccc" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+        text-rendering="geometricPrecision" font-size="110">
+        <image x="5" y="3" width="14" height="14"
+            xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiCiAgICB2aWV3Qm94PSIwIDAgMzIgMzIiPgogICAgPHBhdGgKICAgICAgICBkPSJtMiAxNy41NSA3Ljk3LTMuMjJhMjAuNyAyMC43IDAgMCAxIDIuNzItMi45NWMuNjYtLjM1IDEuOS0uMTYgNC4xNy0yLjk4IDIuMi0yLjc1IDIuOS01LjEgMy45My01LjEgMS42MyAwIDIuODMgMy41MiA0LjY1IDguODVBMTE1LjYyOSAxMTUuNjI5IDAgMCAwIDMwIDI0LjEyYy0xLjktMS43Ny0zLjUyLTMuNjgtNS4zNy0zLjYzLTEuNzIuMDQtMy42MyAyLjA4LTUuNzIgNC43LTEuNjYgMi4xLTMuODYgMy41NC00LjcyIDMuNTEgMCAwLTIuMjItNi4yOC00LjA4LTcuM2EyLjY0MSAyLjY0MSAwIDAgMC0yLjM5LjJMMiAxNy41NFoiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0xOS44IDQuMDJjLS42Ny45LTEuNDggMi41NS0yLjk0IDQuMzgtMi4yNyAyLjgyLTMuNSAyLjYzLTQuMTcgMi45OGExOS42NzQgMTkuNjc0IDAgMCAwLTIuNzIgMi45NWwzLjMgMi40MWMyLjgtMy44MiA0LjMtNy45NiA1LjQ3LTEwLjY0YTEzLjU3OSAxMy41NzkgMCAwIDEgMS4wNi0yLjA4WiIKICAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2EpIiAvPgogICAgPHBhdGgKICAgICAgICBkPSJNMjAuOCAzLjNjLTIuMTggMC0zLjY3IDExLjQ4LTExLjcyIDE3Ljg5IDIuMjYtLjM3IDQuMjIgNS4yNCA1LjEyIDcuNTEgNC0uNjggNy4yLTguMzMgMTAuNDMtOC4yMSAxLjg1LjA3IDMuNDcgMS44NiA1LjM3IDMuNjNDMjUuNjYgMTUgMjMuNjMgMy4zIDIwLjggMy4zWiIKICAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2IpIiAvPgo8L3N2Zz4=" />
+        <text aria-hidden="true" x="360" y="150" fill="#ccc" fill-opacity=".3" transform="scale(.1)"
+            textLength="300">Matlab</text>
+        <text x="360" y="140" transform="scale(.1)" fill="#333" textLength="300">Matlab</text>
+    </g>
+    <script xmlns="" id="bw-fido2-page-script" />
+</svg>
